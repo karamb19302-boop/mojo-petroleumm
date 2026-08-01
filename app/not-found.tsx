@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function NotFound(){return <main className="page-hero"><div className="shell"><p className="eyebrow">404</p><h1>That page isn’t on the map.</h1><p>Return to Mojo Petroleum or request an inspection.</p><br/><Link href="/" className="btn primary">Return home</Link></div></main>}

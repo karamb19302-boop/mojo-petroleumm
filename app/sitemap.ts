@@ -1,0 +1,1 @@
+import type {MetadataRoute} from 'next';const paths=['','/about','/services','/safety','/schedule-inspection','/contact','/privacy-policy'];export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL||'https://www.mojopetroleum.com';return paths.map(path=>({url:base+path,lastModified:new Date()}))}
