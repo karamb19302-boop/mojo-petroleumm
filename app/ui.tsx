@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import mascotSrc from "../mojomascotnbg.png";
-const services=[['ust-ast-installation','UST/AST Installation'],['maintenance-repairs','Maintenance & Repairs'],['compliance-testing','Compliance Testing'],['fuel-system-repairs','Fuel System Repairs'],['preventative-maintenance','Preventative Maintenance'],['emergency-service','Emergency Service']];
+const services=[['ust-ast-installation','UST/AST Installation'],['maintenance-repairs','Maintenance & Repairs'],['compliance-testing','Compliance Testing'],['preventative-maintenance','Preventative Maintenance'],['emergency-service','Emergency Service']];
 const navLinks=[['About','/about'],['Services','/services'],['Safety','/safety'],['Contact','/contact']];
 function MascotIcon(){return <Image src={mascotSrc} alt="Mojo mascot" fill sizes="56px" style={{objectFit:'contain'}} priority />}
 function Brand(){return <span className="brand-logo"><span className="brand-icon"><MascotIcon/></span><span className="brand-copy"><span className="brand-word mojo">MOJO</span><span className="brand-word petroleum">PETROLEUM</span></span></span>}

@@ -3,8 +3,6 @@ import { randomUUID } from "crypto";
 
 // Accept the correctly-named env var, but tolerate the common misspelling
 const recipient = process.env.INSPECTION_RECIPIENT || process.env.INSPECTION_RECEPIENT || "info@mojopetroinc.com";
-// Optional Wix webhook URL (configure on Wix to receive inspection payloads)
-const wixWebhookUrl = process.env.WIX_WEBHOOK_URL;
 const requests = new Map<string, number[]>();
 const clean = (value: unknown, max = 200) => typeof value === "string" ? value.trim().slice(0, max) : "";
 const escape = (value: string) => value.replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]!));
@@ -40,12 +38,6 @@ export async function POST(request: Request) {
     const internal = await fetch("https://api.resend.com/emails", { method: "POST", headers, body: JSON.stringify({ from: process.env.EMAIL_FROM, to: [recipient], reply_to: email, subject: `Inspection request ${reference} — ${clean(body.company)}`, html }) });
     if (!internal.ok) return NextResponse.json({ error: "Unable to deliver request. Please call us." }, { status: 502 });
     await fetch("https://api.resend.com/emails", { method: "POST", headers, body: JSON.stringify({ from: process.env.EMAIL_FROM, to: [email], subject: `We received your inspection request (${reference})`, html: `<p>Thank you for contacting Mojo Petroleum. Your reference number is <strong>${reference}</strong>. Our team will review your request and follow up shortly.</p>` }) });
-  } else if (wixWebhookUrl) {
-    // Fallback: POST the inspection payload to a Wix webhook URL. Configure a Wix backend endpoint to receive
-    // this payload and send mail using Wix Email/CRM services (or otherwise forward it to the verified email).
-    const wixPayload = { reference, from: process.env.EMAIL_FROM, to: recipient, reply_to: email, subject: `Inspection request ${reference} — ${clean(body.company)}`, html };
-    const wixResp = await fetch(wixWebhookUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(wixPayload) });
-    if (!wixResp.ok) return NextResponse.json({ error: "Unable to deliver request via Wix webhook. Please call us." }, { status: 502 });
   } else {
     // No delivery mechanism configured — log destination for development
     console.info("Inspection notification destination:", recipient, reference);
