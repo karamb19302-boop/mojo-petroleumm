@@ -1,20 +1,20 @@
 import Link from "next/link"; import { Cta } from "../ui";
 const list=[['ust-ast-installation','UST/AST Installation','Professional UST and AST installation services designed to provide safe, reliable, and fully compliant fuel storage solutions from planning through final commissioning.'],['maintenance-repairs','Maintenance & Repairs','Keep your fuel systems operating at peak performance with expert maintenance and repair services. Our experienced technicians provide fast, reliable solutions that minimize downtime, extend equipment life, and ensure regulatory compliance.'],['compliance-testing','Compliance Testing','Ensure your fuel systems remain safe, compliant, and operating at their best with comprehensive compliance testing performed by certified professionals.'],['emergency-service','Emergency Service','When unexpected issues arise, MOJO Petroleum Services is ready to respond. Our emergency service team provides rapid diagnostics and repairs to restore your fuel system safely, efficiently, and with minimal downtime.']];
 const tiffImages=[
-  '/licenses/license-1.tiff',
-  '/licenses/license-2.tiff',
-  '/licenses/license-3.tiff',
-  '/licenses/license-4.tiff',
-  '/licenses/license-5.tiff',
-  '/licenses/license-6.tiff',
-  '/licenses/license-7.tiff',
-  '/licenses/license-8.tiff',
-  '/licenses/license-9.tiff',
-  '/licenses/TIFF image (10).jpeg',
-  '/licenses/license-11.tiff',
-  '/licenses/license-12.tiff',
-  '/licenses/license-13.tiff',
-  '/licenses/license-14.tiff'
+  '/licenses/web/license-1.png',
+  '/licenses/web/license-2.png',
+  '/licenses/web/license-3.png',
+  '/licenses/web/license-4.png',
+  '/licenses/web/license-5.png',
+  '/licenses/web/license-6.png',
+  '/licenses/web/license-7.png',
+  '/licenses/web/license-8.png',
+  '/licenses/web/TIFF image (10).png',
+  '/licenses/web/TIFF image (10).png',
+  '/licenses/web/TIFF image (10).png',
+  '/licenses/web/license-12.png',
+  '/licenses/web/license-13.png',
+  '/licenses/web/license-14.png'
 ];
 export const metadata={title:"Services"};
 export default function Services(){
