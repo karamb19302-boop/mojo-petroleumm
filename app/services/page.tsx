@@ -9,7 +9,7 @@ const tiffImages=[
   '/licenses/license-6.tiff',
   '/licenses/license-7.tiff',
   '/licenses/license-9.tiff',
-  '/licenses/license-10.jpeg',
+  '/licenses/TIFF image (10).jpeg',
   '/licenses/license-11.tiff',
   '/licenses/license-12.tiff',
   '/licenses/license-13.tiff',
