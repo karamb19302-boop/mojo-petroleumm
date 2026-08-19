@@ -3,6 +3,7 @@ import mascotSrc from "../mojomascotnbg.png";
 import "./globals.css";
 import "./theme.css";
 import "./light-surfaces.css";
+import "./home-images.css";
 import type { Metadata } from "next";
 import { Footer, Nav } from "./ui";
 import { AnimatedBackground } from "./animated-background";

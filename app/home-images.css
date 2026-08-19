@@ -1,0 +1,8 @@
+/* Homepage photos: retain the existing soft, ghosted hero treatment. */
+.hero {
+  background: linear-gradient(100deg, #fff 5%, #ffffffe6 48%, #ffffff59 100%), url('/landing.jpg') center / cover;
+}
+
+.image-block {
+  background: url('/landingpage.jpg') center / cover;
+}
