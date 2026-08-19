@@ -1,6 +1,9 @@
 /* Homepage photos: retain the existing soft, ghosted hero treatment. */
 .hero {
-  background: linear-gradient(100deg, #fff 5%, #ffffffe6 48%, #ffffff59 100%), url('/landing.jpg') center / cover;
+  background:
+    radial-gradient(circle at 15% 82%, rgba(132, 204, 22, 0.25), transparent 38%),
+    linear-gradient(105deg, rgba(224, 242, 204, 0.96) 0%, rgba(237, 248, 225, 0.9) 36%, rgba(247, 252, 241, 0.58) 62%, rgba(255, 255, 255, 0.12) 100%),
+    url('/landing.jpg') center / cover;
 }
 
 .image-block {
