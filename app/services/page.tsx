@@ -9,9 +9,9 @@ const tiffImages=[
   '/licenses/web/license-6.png',
   '/licenses/web/license-7.png',
   '/licenses/web/license-8.png',
+  '/licenses/web/gilbarco-veeder-root.png',
   '/licenses/web/TIFF image (10).png',
-  '/licenses/web/TIFF image (10).png',
-  '/licenses/web/TIFF image (10).png',
+  '/licenses/web/license-11.png',
   '/licenses/web/license-12.png',
   '/licenses/web/license-13.png',
   '/licenses/web/license-14.png'
