@@ -55,7 +55,7 @@ export default function Services(){
           <div className="showcase-grid">
             {tiffImages.map((src, index) => (
               <div className="showcase-card" key={src}>
-                <img src={src} alt={`Logo asset ${index + 1}`} className="showcase-image" />
+                <img src={src} alt={`License ${index + 1}`} className="showcase-image" />
               </div>
             ))}
           </div>
