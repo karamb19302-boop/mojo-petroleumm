@@ -3,6 +3,7 @@ import { randomUUID } from "crypto";
 
 // Accept the correctly-named env var, but tolerate the common misspelling
 const recipient = process.env.INSPECTION_RECIPIENT || process.env.INSPECTION_RECEPIENT || "info@mojopetroinc.com";
+const internalRecipients = [...new Set([recipient, "Moe@mojopetroinc.com"])];
 const requests = new Map<string, number[]>();
 const clean = (value: unknown, max = 200) => typeof value === "string" ? value.trim().slice(0, max) : "";
 const escape = (value: string) => value.replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]!));
@@ -35,7 +36,7 @@ export async function POST(request: Request) {
   if (process.env.RESEND_API_KEY) {
     // Preferred path: send via Resend (unchanged)
     const headers = { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" };
-    const internal = await fetch("https://api.resend.com/emails", { method: "POST", headers, body: JSON.stringify({ from: process.env.EMAIL_FROM, to: [recipient], reply_to: email, subject: `Inspection request ${reference} — ${clean(body.company)}`, html }) });
+    const internal = await fetch("https://api.resend.com/emails", { method: "POST", headers, body: JSON.stringify({ from: process.env.EMAIL_FROM, to: internalRecipients, reply_to: email, subject: `Inspection request ${reference} — ${clean(body.company)}`, html }) });
     if (!internal.ok) return NextResponse.json({ error: "Unable to deliver request. Please call us." }, { status: 502 });
     await fetch("https://api.resend.com/emails", { method: "POST", headers, body: JSON.stringify({ from: process.env.EMAIL_FROM, to: [email], subject: `We received your inspection request (${reference})`, html: `<p>Thank you for contacting Mojo Petroleum. Your reference number is <strong>${reference}</strong>. Our team will review your request and follow up shortly.</p>` }) });
   } else {
